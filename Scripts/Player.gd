@@ -2,9 +2,10 @@ class_name Player extends CharacterBody2D
 
 signal puck_shot(puck_scene, location)
 @export var SPEED = 300.0
-@export var RATE_OF_FIRE := 0.25
+@export var RATE_OF_FIRE := 0.50
 
 @onready var shot_start = $ShotStart
+@onready var shotSound = $ShotSound
 
 var puck_scene = preload("res://Scenes/puck.tscn")
 
@@ -31,8 +32,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 	position.x = clamp(position.x, 0, get_viewport().size.x-40)
-	position.y = clamp(position.y, 0, get_viewport().size.y)
+	position.y = clamp(position.y, 0, get_viewport().size.y-40)
 	
 func shoot():
+	shotSound.play()
 	puck_shot.emit(puck_scene, shot_start.global_position)
 	

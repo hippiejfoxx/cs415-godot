@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b081cuwq6gdh2"]
+[gd_scene load_steps=7 format=3 uid="uid://b081cuwq6gdh2"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2gv1u"]
 [ext_resource type="Texture2D" uid="uid://ci6rbfhuaj8k7" path="res://kenney_sports-pack/PNG/Red/characterRed (3).png" id="2_2agve"]
 [ext_resource type="Texture2D" uid="uid://bfx2y6y0ke45h" path="res://kenney_sports-pack/PNG/Red/characterRed (11).png" id="3_g3xri"]
 [ext_resource type="Texture2D" uid="uid://bj4q3mqu3h12e" path="res://kenney_sports-pack/PNG/Equipment/bat_metal.png" id="4_ah1em"]
 [ext_resource type="Texture2D" uid="uid://db2k1iinvk0ix" path="res://kenney_sports-pack/PNG/Equipment/racket_handle.png" id="5_h25ym"]
+[ext_resource type="AudioStream" uid="uid://cpkkybuo7tnu2" path="res://Sounds/Shot.wav" id="6_363yl"]
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(28, 19)
@@ -43,3 +44,7 @@ position = Vector2(30.9258, -4.53789)
 texture = ExtResource("5_h25ym")
 
 [node name="ShotStart" type="Marker2D" parent="."]
+position = Vector2(3.32962, -6.47539)
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_363yl")
