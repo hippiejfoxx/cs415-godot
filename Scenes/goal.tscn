@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dposa0g5wmtlk"]
+[gd_scene load_steps=5 format=3 uid="uid://dposa0g5wmtlk"]
 
 [ext_resource type="Script" path="res://Scripts/goal.gd" id="1_5f2rq"]
 [ext_resource type="Texture2D" uid="uid://dy4gw4krfqlxv" path="res://EnemieAssets/goal.png" id="2_md0ip"]
+[ext_resource type="AudioStream" uid="uid://bb5tyou3d5h4i" path="res://Sounds/goalpost.wav" id="3_j2ibm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52ikr"]
 size = Vector2(49, 31)
@@ -23,5 +24,10 @@ shape = SubResource("RectangleShape2D_52ikr")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.5, -34.5)
 
+[node name="GoalMade" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j2ibm")
+volume_db = 3.52
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

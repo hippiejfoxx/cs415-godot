@@ -4,6 +4,11 @@ class_name Goalie extends Area2D
 @export var SPEED = 300
 signal destroyed_by_player()
 
+@onready var padBounce = $PadBounce
+
+signal playSound(soundToPlay)
+signal enemy_score()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -27,10 +32,12 @@ func _on_damage_area_area_entered(area):
 		queue_free()
 		destroyed_by_player.emit()
 
-
 func _on_absorb_area_area_entered(area):
 	if area is Puck:
+		playSound.emit(padBounce)
 		area.blocked()
 	
 func _on_body_entered(body):
-	queue_free()
+	if body is Player:
+		enemy_score.emit()
+		queue_free()
