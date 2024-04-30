@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7sc4a1u8h4yr"]
+
+[ext_resource type="Script" path="res://Scripts/scoreboard.gd" id="1_46fws"]
+[ext_resource type="Texture2D" uid="uid://c6axb0eiweday" path="res://OtherAssets/Scoreboard.png" id="2_vjfvq"]
+
+[node name="Scoreboard" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_46fws")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vjfvq")
+
+[node name="HomeScore" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -16.0
+offset_right = 1.0
+offset_bottom = 7.0
+text = "0"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="AwayScore" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = -16.0
+offset_right = 31.0
+offset_bottom = 7.0
+text = "0"
+scroll_active = false
+shortcut_keys_enabled = false

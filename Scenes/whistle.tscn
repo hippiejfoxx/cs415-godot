@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://rdbe12xbtruw"]
+
+[ext_resource type="Script" path="res://Scripts/whistle.gd" id="1_evxwq"]
+[ext_resource type="Texture2D" uid="uid://cr0w1kga2yvnd" path="res://kenney_sports-pack/PNG/Equipment/flag_white.png" id="1_fnxap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dvd2"]
+size = Vector2(50.9754, 56.4062)
+
+[node name="Whistle" type="Area2D"]
+light_mask = 4
+visibility_layer = 5
+position = Vector2(15, 4)
+collision_layer = 4
+script = ExtResource("1_evxwq")
+
+[node name="WhistleSprite" type="Sprite2D" parent="."]
+light_mask = 4
+visibility_layer = 5
+position = Vector2(-14, -7.125)
+scale = Vector2(1.75, 2.08333)
+texture = ExtResource("1_fnxap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 5
+position = Vector2(-14, -3)
+rotation = 0.900561
+shape = SubResource("RectangleShape2D_6dvd2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

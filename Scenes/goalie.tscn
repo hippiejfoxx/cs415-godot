@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqly8a5wv66kh"]
+
+[ext_resource type="Script" path="res://Scripts/goalie.gd" id="1_n6u24"]
+[ext_resource type="Texture2D" uid="uid://bf5ayi4gahii2" path="res://EnemieAssets/nhl94goalie.png" id="1_thq02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq2lk"]
+size = Vector2(133.551, 17.1788)
+
+[node name="Goalie" type="Area2D"]
+scale = Vector2(1.42268, 1.39298)
+collision_layer = 2
+script = ExtResource("1_n6u24")
+
+[node name="Nhl94Goalie" type="Sprite2D" parent="."]
+position = Vector2(102.25, 94.5)
+scale = Vector2(0.831915, 0.766949)
+texture = ExtResource("1_thq02")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(99, 21)
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="DamageCollision" type="CollisionPolygon2D" parent="DamageArea"]
+position = Vector2(-90.674, -27.9975)
+scale = Vector2(1.86628, 1.19687)
+polygon = PackedVector2Array(98.3009, 121.759, 98.3009, 130.756, 110.73, 130.157, 110.353, 118.161, 109.223, 106.764, 109, 103, 107.717, 102.566, 99.0542, 100.766)
+
+[node name="AbsorbArea" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="AbsorbCollision" type="CollisionPolygon2D" parent="AbsorbArea"]
+polygon = PackedVector2Array(89.9711, 133.527, 70.9928, 135.68, 49, 123, 37, 85, 45, 71, 81, 36, 98, 32, 124, 38, 138, 53, 158, 50, 171, 58, 171, 58, 169, 74, 150, 105, 151, 125, 134, 132, 127.928, 132.809, 122.305, 132.809, 116.681, 122.758, 117.384, 109.836, 112, 92, 94, 92, 91, 107)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(102.623, 144.27)
+shape = SubResource("RectangleShape2D_mq2lk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="AbsorbArea" to="." method="_on_absorb_area_area_entered"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccyrqqjqobyok"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_dxrj5"]
+[ext_resource type="PackedScene" uid="uid://b081cuwq6gdh2" path="res://Scenes/player.tscn" id="2_cg1t6"]
+[ext_resource type="PackedScene" uid="uid://c7sc4a1u8h4yr" path="res://Scenes/scoreboard.tscn" id="2_ddego"]
+[ext_resource type="PackedScene" uid="uid://cqly8a5wv66kh" path="res://Scenes/goalie.tscn" id="3_w8cya"]
+[ext_resource type="PackedScene" uid="uid://dposa0g5wmtlk" path="res://Scenes/goal.tscn" id="4_s8en4"]
+[ext_resource type="PackedScene" uid="uid://bhta872pkc6fy" path="res://Scenes/defenseman.tscn" id="5_cc0ub"]
+[ext_resource type="PackedScene" uid="uid://qardjsmdaqg4" path="res://Scenes/ref.tscn" id="6_sn132"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_dxrj5")
+
+[node name="Scoreboard" parent="." instance=ExtResource("2_ddego")]
+position = Vector2(664, 1978)
+
+[node name="Player" parent="." instance=ExtResource("2_cg1t6")]
+position = Vector2(246, 883)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(615, 1774)
+
+[node name="Goalie" parent="." instance=ExtResource("3_w8cya")]
+position = Vector2(117, -3)
+
+[node name="PuckContainer" type="Node2D" parent="."]
+
+[node name="Goal" parent="." instance=ExtResource("4_s8en4")]
+position = Vector2(65, 122)
+
+[node name="Defenseman" parent="." instance=ExtResource("5_cc0ub")]
+position = Vector2(582, 167)
+scale = Vector2(2, 2)
+
+[node name="Ref" parent="." instance=ExtResource("6_sn132")]
+position = Vector2(423, 195)
+scale = Vector2(2, 2)
+
+[node name="WhistleContainer" type="Node2D" parent="."]

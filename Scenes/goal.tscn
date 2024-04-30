@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dposa0g5wmtlk"]
+
+[ext_resource type="Script" path="res://Scripts/goal.gd" id="1_5f2rq"]
+[ext_resource type="Texture2D" uid="uid://dy4gw4krfqlxv" path="res://EnemieAssets/goal.png" id="2_md0ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52ikr"]
+size = Vector2(49, 31)
+
+[node name="Goal" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_5f2rq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_md0ip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, -3.5)
+shape = SubResource("RectangleShape2D_52ikr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.5, -34.5)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
