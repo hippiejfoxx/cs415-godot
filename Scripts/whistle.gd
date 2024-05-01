@@ -3,6 +3,8 @@ extends Area2D
 
 @export var SPEED = 400
 
+
+signal enemy_scored()
 #-1 left 
 #0 straight
 #1 right
@@ -22,4 +24,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Player:
+		enemy_scored.emit()
 		queue_free()

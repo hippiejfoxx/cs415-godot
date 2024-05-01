@@ -11,15 +11,19 @@ config_version=5
 [application]
 
 config/name="SuddenDeath"
-run/main_scene="res://Scenes/game.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScoreScript="*res://Scripts/ScoreScript.gd"
+
 [display]
 
-window/size/viewport_width=1400
-window/size/viewport_height=2000
-window/size/resizable=false
+window/size/viewport_width=850
+window/size/viewport_height=1200
+window/size/initial_position_type=0
 
 [input]
 

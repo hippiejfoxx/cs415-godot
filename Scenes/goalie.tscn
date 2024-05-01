@@ -5,9 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://bcqg02a8lhj1j" path="res://Sounds/pad_bounce.wav" id="3_hup31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mq2lk"]
-size = Vector2(133.551, 17.1788)
+size = Vector2(163.775, 40.8942)
 
 [node name="Goalie" type="Area2D"]
+position = Vector2(4, 2)
 scale = Vector2(1.42268, 1.39298)
 collision_layer = 2
 script = ExtResource("1_n6u24")
@@ -36,7 +37,7 @@ collision_mask = 4
 polygon = PackedVector2Array(89.9711, 133.527, 70.9928, 135.68, 49, 123, 37, 85, 45, 71, 81, 36, 98, 32, 124, 38, 138, 53, 158, 50, 171, 58, 171, 58, 169, 74, 150, 105, 151, 125, 134, 132, 127.928, 132.809, 122.305, 132.809, 116.681, 122.758, 117.384, 109.836, 112, 92, 94, 92, 91, 107)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(102.623, 144.27)
+position = Vector2(101.569, 162.614)
 shape = SubResource("RectangleShape2D_mq2lk")
 
 [node name="PadBounce" type="AudioStreamPlayer" parent="."]

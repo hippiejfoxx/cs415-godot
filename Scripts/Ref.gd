@@ -1,14 +1,17 @@
-extends Area2D
+class_name Stripes extends Area2D
 
 
 @export var SPEED = 100
 
 @onready var shot_start = $WhistleStart
 @onready var whistle_scene = preload("res://Scenes/whistle.tscn")
-
+@onready var whistleSound = $WhistleSound
 @export var RATE_OF_FIRE := 1
 
 signal shoot_whistle(whistle, location)
+signal enemy_score()
+signal destroyed_by_player()
+signal playSound()
 
 var shoot_cd := false
 
@@ -38,15 +41,15 @@ func shoot():
 	shoot_whistle.emit(rw, shot_start.global_position)
 	shoot_whistle.emit(lw, shot_start.global_position)
 	
-
-
-
 func _on_body_entered(body):
 	if body is Player:
+		enemy_score.emit()
 		queue_free()
 		
-
-
 func _on_area_entered(area):
 	if area is Puck:
+		destroyed_by_player.emit()
 		queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	whistleSound.play()

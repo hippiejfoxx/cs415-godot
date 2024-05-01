@@ -1,34 +1,43 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccyrqqjqobyok"]
+[gd_scene load_steps=9 format=3 uid="uid://ccyrqqjqobyok"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_dxrj5"]
 [ext_resource type="PackedScene" uid="uid://b081cuwq6gdh2" path="res://Scenes/player.tscn" id="2_cg1t6"]
 [ext_resource type="PackedScene" uid="uid://c7sc4a1u8h4yr" path="res://Scenes/scoreboard.tscn" id="2_ddego"]
-[ext_resource type="PackedScene" uid="uid://bhta872pkc6fy" path="res://Scenes/defenseman.tscn" id="5_cc0ub"]
-[ext_resource type="PackedScene" uid="uid://qardjsmdaqg4" path="res://Scenes/ref.tscn" id="6_sn132"]
+[ext_resource type="Shader" path="res://Shaders/scroll.gdshader" id="2_j8acy"]
+[ext_resource type="Texture2D" uid="uid://cumwgowqey6gg" path="res://OtherAssets/background.png" id="2_uffj0"]
 [ext_resource type="AudioStream" uid="uid://uyth1kl1uq80" path="res://Sounds/hit.wav" id="7_sw07e"]
 [ext_resource type="PackedScene" uid="uid://bqye4wm6wsq6e" path="res://Scenes/enemy_generator.tscn" id="8_x01ht"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axe6i"]
+shader = ExtResource("2_j8acy")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_dxrj5")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_axe6i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 850.0
+offset_bottom = 1208.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uffj0")
+
 [node name="Scoreboard" parent="." instance=ExtResource("2_ddego")]
-position = Vector2(664, 1978)
+position = Vector2(429, 1181)
 
 [node name="Player" parent="." instance=ExtResource("2_cg1t6")]
 position = Vector2(246, 883)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(615, 1774)
+position = Vector2(393, 1098)
 
 [node name="PuckContainer" type="Node2D" parent="."]
-
-[node name="Defenseman" parent="." instance=ExtResource("5_cc0ub")]
-position = Vector2(582, 167)
-scale = Vector2(2, 2)
-
-[node name="Ref" parent="." instance=ExtResource("6_sn132")]
-position = Vector2(423, 195)
-scale = Vector2(2, 2)
 
 [node name="WhistleContainer" type="Node2D" parent="."]
 
@@ -40,12 +49,12 @@ scale = Vector2(2, 2)
 stream = ExtResource("7_sw07e")
 
 [node name="GameTimeLabel" type="Label" parent="."]
-offset_left = 623.0
-offset_top = 2.0
-offset_right = 643.0
-offset_bottom = 27.0
+offset_left = 408.0
+offset_top = -18.0
+offset_right = 428.0
+offset_bottom = 7.0
 scale = Vector2(5, 5)
 text = "00"
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 10.0

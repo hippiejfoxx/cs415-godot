@@ -16,8 +16,7 @@ script = ExtResource("1_2gv1u")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.321129, -0.513394)
-scale = Vector2(1, 1)
-polygon = PackedVector2Array(-23.1298, 33.9118, -20.6819, 47.1409, -15.0986, 55.2542, -1.59446, 60.0121, 13.9173, 51.926, 17.685, 34.2964, -2.39257, 17.2996, -1.81509, 10.6163, -3.24535, -13.2488, -11.578, -12.6028, -12.5962, 26.2933, -20.3246, 27.421)
+polygon = PackedVector2Array(-23.1298, 33.9118, -20.6819, 47.1409, -15.0986, 55.2542, -1.59446, 60.0121, 13.9173, 51.926, 17.685, 34.2964, 4.39484, 25.2388, -20.3246, 27.421)
 
 [node name="CharacterRed(3)" type="Sprite2D" parent="." groups=["player"]]
 position = Vector2(-2.3372, 47.8282)

@@ -10,3 +10,9 @@ wait_time = 2.0
 
 [node name="GoalTimer" type="Timer" parent="."]
 wait_time = 1.2
+
+[node name="RefTimer" type="Timer" parent="."]
+wait_time = 11.0
+
+[node name="DTimer" type="Timer" parent="."]
+wait_time = 5.0

@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 signal puck_shot(puck_scene, location)
 @export var SPEED = 300.0
-@export var RATE_OF_FIRE := 0.50
+@export var RATE_OF_FIRE := 0.45
 
 @onready var shot_start = $ShotStart
 @onready var shotSound = $ShotSound
